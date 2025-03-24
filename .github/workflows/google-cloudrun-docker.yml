@@ -39,7 +39,7 @@ env:
   REGION: 'us-central1' # TODO: update to your region
   SERVICE: 'github-actions@cts13-yemireddyc.iam.gserviceaccount.com' # TODO: update to your service name
   WORKLOAD_IDENTITY_PROVIDER: 'projects/751345403071/locations/global/workloadIdentityPools/devops-pool/providers/github' # TODO: update to your workload identity provider
-  REPO: 'github'
+  REPO: 'sample4'
 
 jobs:
   deploy:
