@@ -4,6 +4,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-        return 'Welcom to python flask world from github:cloudrun repo '
+        return 'Welcom to python flask world from github:cloudrun repo'
 if __name__ == '__main__':
                   app.run(host='0.0.0.0', port=8080)
