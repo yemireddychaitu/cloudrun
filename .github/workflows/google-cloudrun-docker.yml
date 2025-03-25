@@ -61,7 +61,7 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v2' # google-github-actions/auth@v2
         with:
-          workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
+          workload_identity_provider: 'projects/751345403071/locations/global/workloadIdentityPools/devops-pool/providers/github'
           
 
       # BEGIN - Docker auth and build
