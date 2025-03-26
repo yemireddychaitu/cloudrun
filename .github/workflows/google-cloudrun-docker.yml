@@ -36,10 +36,11 @@ on:
 
 env:
   PROJECT_ID: 'cts13-yemireddyc' # TODO: update to your Google Cloud project ID
-  REGION: 'asia-southeast1' # TODO: update to your region
+  REGION: 'us-central1' # TODO: update to your region
   SERVICE: 'github-actions@cts13-yemireddyc.iam.gserviceaccount.com' # TODO: update to your service name
   WORKLOAD_IDENTITY_PROVIDER: 'projects/751345403071/locations/global/workloadIdentityPools/devops-pool/providers/github' # TODO: update to your workload identity provider
-  REPO: 'sample3'
+  REPO: 'github'
+  CRNAME: 'githubcr2'
 
 jobs:
   deploy:
@@ -51,7 +52,7 @@ jobs:
 
     steps:
       - name: 'Checkout'
-        uses: 'actions/checkout@v2' # actions/checkout@v4
+        uses: 'actions/checkout@v3' # actions/checkout@v4
 
       # Configure Workload Identity Federation and generate an access token.
       #
@@ -90,7 +91,7 @@ jobs:
 
         uses: 'google-github-actions/deploy-cloudrun@v2' # google-github-actions/deploy-cloudrun@v2
         with:
-          service: '${{ env.SERVICE }}'
+          service: '${{ env.CRNAME }}'
           region: '${{ env.REGION }}'
           # NOTE: If using a pre-built image, update the image name below:
 
