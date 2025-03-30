@@ -37,8 +37,8 @@ on:
 env:
   PROJECT_ID:  ${{ vars.PROJECT_ID }} #${{ secrets.PROJECT_ID }} TODO: update to your Google Cloud project ID
   REGION: 'us-central1' # TODO: update to your region
-  SERVICE: 'github-actions@cts13-yemireddyc.iam.gserviceaccount.com' # TODO: update to your service name
-  WORKLOAD_IDENTITY_PROVIDER: 'projects/751345403071/locations/global/workloadIdentityPools/devops-pool/providers/github' # TODO: update to your workload identity provider
+  SERVICE: ${{ vars.SERVICE }} # TODO: update to your service name
+  WORKLOAD_IDENTITY_PROVIDER: ${{ vars.WORKLOAD_IDENTITY_PROVIDER }} # TODO: update to your workload identity provider
   REPO: 'github'
   CRNAME: 'githubcr3'
   
@@ -73,8 +73,8 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
         token_format: 'access_token'
-        workload_identity_provider: 'projects/751345403071/locations/global/workloadIdentityPools/devops-pool/providers/github'
-        service_account: 'github-actions@cts13-yemireddyc.iam.gserviceaccount.com'
+        workload_identity_provider: ${{ vars.WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ vars.SERVICE }}
         
     - name: Configure Docker for Google Artifact Registry
       run: |-
